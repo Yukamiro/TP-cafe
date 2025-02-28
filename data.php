@@ -12,14 +12,14 @@ $boissons = [
         "id" => 2,
         "nom" => "café long",
         "prix" => 1,
-        "sucre" => true,
+        "sucre" => false,
     ],
     [
         "type" => "café",
         "id" => 3,
         "nom" => "cappuccino",
         "prix" => 0.5,
-        "sucre" => true,
+        "sucre" => false,
     ],
     [
         "type" => "café",

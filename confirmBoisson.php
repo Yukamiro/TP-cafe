@@ -1,6 +1,6 @@
 <?php
 require_once "data.php";
-var_dump($_GET);
+var_dump($_POST);
 
 if (isset($_POST["nom"]) == true) {
 
@@ -10,9 +10,9 @@ if (isset($_POST["nom"]) == true) {
 
             // mettre un if pour dire que la boisson qu'on a choisis contient du sucre oui ou non
             if ($boisson["sucre"] == true) {
-                header("location: choixSucre.php$_GET");
+                header("location: choixSucre.php?boisson=" . $_POST["nom"]);
             } else {
-                header("location: confirmCommande.php$_GET");
+                header("location: confirmCommande.php?boisson=" . $_POST["nom"]);
             }
         }
     }

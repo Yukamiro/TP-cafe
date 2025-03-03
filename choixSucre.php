@@ -13,7 +13,7 @@ if (isset($_GET["boisson"]) == true) {
         }
     }
 } else {
-    header("location: choixBoisson.php");
+    header("location: confirmCommande.php");
 }
 
 ?>

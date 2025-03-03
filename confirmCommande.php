@@ -15,7 +15,7 @@ if (isset($_GET["boisson"]) == true) {
 
                 $nombreSucre = $_POST["sucre"];
                 // Un if qui vérifie si la valeur du sucre est entre 0 et 5
-                if ($nombreSucre >= 0 and $nombreSucre <= 5) {
+                if ($nombreSucre >= 0 and $nombreSucre <= 5 and $nombreSucre != "") {
                     //Renvoie le récapitulatif de la commande avec le sucre
 ?>
                     <p> Voici votre récapitulatif :
@@ -42,6 +42,8 @@ if (isset($_GET["boisson"]) == true) {
                     </form>
                 <?php
 
+                } else {
+                    header("location: choixBoisson.php");
                 }
             } else {
                 //Renvoie le récapitulatif de la commande sans le sucre

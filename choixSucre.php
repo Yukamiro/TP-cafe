@@ -1,15 +1,17 @@
 <?php
 require_once "data.php";
 var_dump($_GET);
-var_dump($_POST);
 
 
-if (isset($_GET["boisson"]) == true) {
+if (isset($_GET["boisson"]) == true and isset($_GET["gouter"]) == true) {
 
     foreach ($boissons as $boisson) {
+        foreach ($gouters as $gouter) {
 
-        if ($_GET["boisson"] == $boisson["nom"]) {
-            $boissonChoisis = $boisson["nom"];
+            if ($_GET["boisson"] == $boisson["nom"] and $_GET["gouter"] == $gouter["name"]) {
+                $gouterChoisis = $gouter["name"];
+                $boissonChoisis = $boisson["nom"];
+            }
         }
     }
 } else {
@@ -18,11 +20,11 @@ if (isset($_GET["boisson"]) == true) {
 
 ?>
 
-<p> Vous avez choisie <?php echo ($boissonChoisis) ?></p>
+<p> Vous avez choisie <?php echo ($boissonChoisis) ?> et un <?php echo ($gouterChoisis) ?></p>
 
-<form method="POST" action="confirmCommande.php?boisson=<?php echo ($_GET["boisson"]) ?>">
-    <label for="sucre"> Combien de sucre ? (0 => 5)</label>
-    <input type="number" id="sucre" name="sucre" value="0" min="0" max="5">
+<form method="POST" action="confirmCommande.php?boisson=<?php echo ($_GET["boisson"] . "&gouter=" . $_GET["gouter"]) ?>">
+    <label for="sucre"> Combien de sucre ? (0 => 5) sur votre <?php echo ($_GET["boisson"]) ?></label>
+    <input type="number" id="sucre" name="sucre" value="5" min="0" max="5">
     <label for="submit"></label>
     <input type="submit" value="Envoyer">
 

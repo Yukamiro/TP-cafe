@@ -5,14 +5,14 @@ var_dump($_POST);
 
 
 // Vérifie si la boisson choisis existe en renvoyant la valeur "true"
-if (isset($_GET["boisson"]) == true and isset($_GET["gouter"]) == true) {
+if (isset($_GET["boisson"], $_GET["gouter"])) {
     // Une boucle qui passe par toute les boissons
     foreach ($boissons as $boisson) {
         foreach ($gouters as $gouter) {
             // Vérifie si le nom correspond au nom choisis de la boisson
             if ($_GET["boisson"] == $boisson["nom"] and $_GET["gouter"] == $gouter["name"]) {
                 // Vérifie si le sucre est dans la boisson en renvoyant la valeur "true"
-                if (isset($_POST["sucre"]) == true) {
+                if (isset($_POST["sucre"])) {
                     $nombreSucre = $_POST["sucre"];
                     // Un if qui vérifie si la valeur du sucre est entre 0 et 5 et que ce n'est pas une chaîne de caractère
                     if ($nombreSucre >= 0 and $nombreSucre <= 5 and $nombreSucre != "") {

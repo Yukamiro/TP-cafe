@@ -3,7 +3,7 @@ require_once "data.php";
 var_dump($_GET);
 var_dump($_POST);
 
-if (isset($_POST["nom"]) == true and isset($_POST["name"]) == true) {
+if (isset($_POST["nom"], $_POST["name"])) {
 
     foreach ($boissons as $boisson) {
         foreach ($gouters as $gouter) {
